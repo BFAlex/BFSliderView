@@ -38,7 +38,6 @@
         
             slider.frame = frame;
             
-//            [slider setupMinValue:minValue andMaxValue:maxValue];
             [slider changeSliderMinValue:minValue andMaxValue:maxValue];
             
         } completion:^(BOOL finished) {
@@ -57,30 +56,27 @@
     return slider;
 }
 
-//- (void)setupMinValue:(CGFloat)minValue andMaxValue:(CGFloat)maxValue {
-//    
-//    _minValue = minValue;
-//    
-//    _maxValue = maxValue;
-//}
-
 - (void)calculatePercentage {
     
-//    if (_maxValue == 1000) {
-    
          _percentage = (_maxValue - _minValue + 1) / self.sliderView.bounds.size.width;
+}
+
+- (NSInteger)calculateBubbleShowNum:(UISlider *)slider {
+    
+    NSInteger num = (slider.value - slider.frame.origin.x) * _percentage + _minValue;
+    
+    if (num > _maxValue) {
         
-//    } else {
-//        
-//        _percentage = (_maxValue - _minValue) / self.sliderView.bounds.size.width;
-//    }    
+        num = _maxValue;
+    }
+    
+    return num;
 }
 
 - (CGPoint)calculateBubbleCenter {
     
     CGFloat x = self.sliderView.value;
     
-//    CGPoint center = CGPointMake(x, self.sliderView.frame.origin.y - kBubbleWH/2);
     CGPoint center = CGPointMake(x - kBubbleMarge * ((_sliderView.value - _sliderView.frame.origin.x) / _sliderView.bounds.size.width) + kBubbleMarge/2, self.sliderView.frame.origin.y - kBubbleWH/2);
     
     
@@ -113,6 +109,7 @@
     
     _bubble = [BFSliderBubbleView sliderBubbleViewWithFrame:CGRectMake(0, 0, kBubbleWH, kBubbleWH)];
     _bubble.center = [self calculateBubbleCenter];
+    _bubble.numLabel.text = [NSString stringWithFormat:@"%zd", [self calculateBubbleShowNum:slider]];
     
     [self addSubview:_bubble];
 }
@@ -140,12 +137,7 @@
         
         _bubble.center = [self calculateBubbleCenter];
         
-        NSInteger num = (slider.value - slider.frame.origin.x) * _percentage + _minValue;
-        
-        if (num > _maxValue) {
-            
-            num = _maxValue;
-        }
+        NSInteger num = [self calculateBubbleShowNum:slider];
         
         _bubble.numLabel.text = [NSString stringWithFormat:@"%zd", num];
         
