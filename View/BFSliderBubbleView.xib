@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gfO-p8-Pep" customClass="BFSliderBubbleView">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble.png" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-b5-VOa">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="qXq-0s-LBD">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="t8g-b5-VOa" firstAttribute="top" secondItem="gfO-p8-Pep" secondAttribute="top" id="AVk-qH-po6"/>
+                <constraint firstItem="qXq-0s-LBD" firstAttribute="leading" secondItem="gfO-p8-Pep" secondAttribute="leading" id="KPd-KD-YOE"/>
+                <constraint firstItem="qXq-0s-LBD" firstAttribute="top" secondItem="gfO-p8-Pep" secondAttribute="top" id="Kgd-RL-ryi"/>
+                <constraint firstAttribute="trailing" secondItem="t8g-b5-VOa" secondAttribute="trailing" id="jlR-dK-ewh"/>
+                <constraint firstAttribute="bottom" secondItem="qXq-0s-LBD" secondAttribute="bottom" id="jsf-6E-0eZ"/>
+                <constraint firstAttribute="bottom" secondItem="t8g-b5-VOa" secondAttribute="bottom" id="oZT-vs-LgC"/>
+                <constraint firstItem="t8g-b5-VOa" firstAttribute="leading" secondItem="gfO-p8-Pep" secondAttribute="leading" id="w2i-Ai-SgW"/>
+                <constraint firstAttribute="trailing" secondItem="qXq-0s-LBD" secondAttribute="trailing" id="wSN-tQ-akz"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="numLabel" destination="qXq-0s-LBD" id="icg-IC-A1D"/>
+            </connections>
+            <point key="canvasLocation" x="333" y="282"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bubble.png" width="48" height="48"/>
+    </resources>
+</document>
